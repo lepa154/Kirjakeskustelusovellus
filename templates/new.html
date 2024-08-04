@@ -1,0 +1,14 @@
+<form action="/send" method="POST">
+Viesti: <br>
+<textarea name="content" rows="3" cols="40"></textarea>
+<br>
+<input type="submit" value="Lähetä">
+</form>
+
+Valitse genre, josta haluat lukea tai kirjoitaa arvosteluja <br>
+
+{% for genre in genres %}
+{{ genre.name }} <br>
+Arvosteluja: x <br>
+<a href="/genre/{{ genre.id }}">Arvostelut</a> <br>
+{% endfor %}
