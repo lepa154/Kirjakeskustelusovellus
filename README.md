@@ -20,6 +20,6 @@ Sovellukseen voi luoda käyttäjätunnuksen ja kirjautua sisään.
 
 Kloonaa reposition koneellesi. Tämän jälkeen luo samaan kansioon .env -niminen tiedosto.
 .env tiedoston sisällöksi tulee:
-  DATABASE_URL
-  jokujoku
+- DATABASE_URL
+- jokujoku
 
