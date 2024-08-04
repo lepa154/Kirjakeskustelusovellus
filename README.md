@@ -14,3 +14,9 @@ Käyttäjä voi kirjoittaa uuden viestin olemassa olevaan ketjuun (arvosteluun).
 Ylläpitäjä voi lisätä ja poistaa keskusteluja ja muuttaa niiden genreä. Ylläpitäjä voi poistaa arvosteluja.
 
 Sovellukseen voi luoda uuden tunnuksen sekä kirjautua sisään ja ulos.
+
+
+Sovellukseen voi luoda käyttäjätunnuksen ja kirjautua sisään.
+
+Kloonaa reposition koneellesi. Tämän jälkeen luo samaan kansioon .env -niminen tiedosto.
+
