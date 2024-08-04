@@ -20,6 +20,18 @@ Sovellukseen voi luoda käyttäjätunnuksen ja kirjautua sisään.
 
 Kloonaa reposition koneellesi. Tämän jälkeen luo samaan kansioon .env -niminen tiedosto.
 .env tiedoston sisällöksi tulee:
-- DATABASE_URL
-- jokujoku
+- DATABASE_URL=
+- SECRET_KEY =
+
+Asenna virtuaaliympäristö ja sovelluksen riippuvuudet komennoilla:
+- $ python3 -m venv venv
+- $ source venv/bin/activate
+- $ pip install -r ./requirements.txt
+
+Määritä tietokannan skeema komennolla:
+- $ psql < schema.sql
+
+Käynnistä:
+- $ flask run
+
 
