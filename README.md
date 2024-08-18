@@ -22,13 +22,13 @@ Kloonaa reposition koneellesi. Tämän jälkeen luo samaan kansioon .env -nimine
 - SECRET_KEY =
 
 Asenna virtuaaliympäristö ja sovelluksen riippuvuudet komennoilla:
--$cd friendapp
--$python3 -m venv venv
--$source venv/bin/activate
--$pip install flask
--$pip install flask-sqlalchemy
--$pip install psycopg2-binary
--$pip install python-dotenv
--$flask run
+- $cd friendapp
+- $python3 -m venv venv
+- $source venv/bin/activate
+- $pip install flask
+- $pip install flask-sqlalchemy
+- $pip install psycopg2-binary
+- $pip install python-dotenv
+- $flask run
 
 
