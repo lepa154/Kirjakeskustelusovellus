@@ -1,35 +1,28 @@
-<title>Kirjakeskustelusovellus</title>
+<html lang="fi">
+<head>
+    <title>Kirjakeskustelusovellus</title>
+</head>
+<body>
+    <p>Tervetuloa, {{ session.get('username') }}</p>
+    <a href="/logout">Kirjaudu ulos</a>
+    <hr>
+    <h2>Arvostelujen määrä: {{ count }}: </h2>
 
-{% if session.username %}
-<p>Tervetuloa, {{ session.username }}</p>
-Valitse genre
-{% for genre in genres %}
-<h2>{{ genre.name }}<h2> <br>
-Arvosteluja: x <br>
-<a href="/genre/{{ genre.id }}">Arvostelut</a> <br>
-</p>
-{% endfor %}
-<a href="/logout">Kirjaudu ulos</a>
-
-{% else %}
-<h2>Kirjaudu sisään</h2>
-<form action="/login" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Kirjaudu">
-</form>
-
-<h2>Luo uusi käyttäjätunnus</h2>
-<form action="/register" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Luo käyttäjätunnus">
-</form>
-{% endif %}
+    {% if reviews %}
+        {% for review in reviews %}
+            <div>
+                <p>Book ID: {{ review.book_id }}</p>
+                <p>Luotu: {{ review.sent_at.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+                <p>Arvosana: {{ review.grade }}</p>
+                <p>Arvostelu: {{ review.content }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Ei arvosteluja saatavilla.</p>
+    {% endif %}
+    <a href="/new">Kirjoita uusi arvostelu</a>
+</body>
+</html>
 
 
 
