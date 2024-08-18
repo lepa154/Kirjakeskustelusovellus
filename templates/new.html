@@ -1,14 +1,21 @@
-<form action="/send" method="POST">
+<form action="/new" method="POST">
+<p>Kirjan nimi:</p>
+<input type="text" name="name"></p>
+<p>Kirjailija:</p>
+<input type="text" name="author"></p>
+
+<p>Arvosana:</p>
+<select name="number">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    
+    </select>
+
 Viesti: <br>
-<textarea name="content" rows="3" cols="40"></textarea>
+<textarea name="content" rows="5" cols="40"></textarea>
 <br>
 <input type="submit" value="Lähetä">
 </form>
-
-Valitse genre, josta haluat lukea tai kirjoitaa arvosteluja <br>
-
-{% for genre in genres %}
-{{ genre.name }} <br>
-Arvosteluja: x <br>
-<a href="/genre/{{ genre.id }}">Arvostelut</a> <br>
-{% endfor %}
