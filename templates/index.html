@@ -1,26 +1,69 @@
 <html lang="fi">
+
 <head>
     <title>Kirjakeskustelusovellus</title>
+    <style>
+        body {
+            margin: auto;
+            max-width: 45em;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background: gray;
+        }
+
+        .header {
+            background: white;
+            padding: 0.5em 1em;
+            border-radius: 0.5em;
+        }
+        .review {
+            margin: 1.5em;
+            padding: 1em;
+            border-radius: 0.5em;
+            background: white;
+        }
+        form {
+            display: block;
+            float: right;
+        }
+    </style>
 </head>
-<body>
-    <p>Tervetuloa, {{ session.get('username') }}</p>
-    <a href="/logout">Kirjaudu ulos</a>
-    <hr>
-    <h2>Arvostelujen määrä: {{ count }}: </h2>
+
+    <div class="header">
+    <h3>Tervetuloa, {{ session.get('username') }}</h3>
+
+    <form action="/get_reviews_by_book" method="POST">
+        <p>Hae tiettyä kirjaa:<br>
+        <input type="text" name="input"></p>
+        <input type="submit" value="Hae">
+    </form> 
+    <br>
+    <a href="/new">Kirjoita uusi arvostelu</a>
+    <br>
+    <a href="/favorites">Katso suosikkikirjasi</a>
+    <h2>Arvostelujen määrä: {{ count }} </h2>
+    
+
+    </div>
+<hr>
 
     {% if reviews %}
         {% for review in reviews %}
-            <div>
-                <p>Book ID: {{ review.book_id }}</p>
-                <p>Luotu: {{ review.sent_at.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+        <div class="review">
+            <tr>
+                <td> {{ review.username}}</td>
+                <td>{{ review.sent_at.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+                <h3> {{ review.name }}</h3>
                 <p>Arvosana: {{ review.grade }}</p>
-                <p>Arvostelu: {{ review.content }}</p>
-            </div>
+                <p> {{ review.content }}</p>
+                <a href="/comment/{{ review.id }}">Lue ja kommentoi</a>
+            </tr>
+            <hr>
+        </div>
         {% endfor %}
     {% else %}
         <p>Ei arvosteluja saatavilla.</p>
     {% endif %}
-    <a href="/new">Kirjoita uusi arvostelu</a>
+    <a href="/logout">Kirjaudu ulos</a>
 </body>
 </html>
 
