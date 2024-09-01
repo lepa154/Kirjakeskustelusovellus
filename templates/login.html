@@ -1,9 +1,25 @@
 <h2>Kirjaudu sisään</h2>
 
+<style>
+    body {
+        margin: auto;
+        max-width: 45em;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        background: gray;
+    }
+
+    .header {
+        background: white;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+    }
+</style>
+
 {% if error %}
 <p style="color:red;">{{ error }}</p>
 {% endif %}
 
+<div class="header">
 <form action="/login" method="POST">
 <p>Tunnus:<br>
 <input type="text" name="username"></p>
@@ -14,3 +30,4 @@
 
 <h2>Luo uusi profiili</h2>
 <li><a href="/register">Luo uusi käyttäjätunnus</a></li>
+</div>
