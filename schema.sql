@@ -2,6 +2,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
     username TEXT UNIQUE, 
     password TEXT,
+    role TEXT
 );
 
 CREATE TABLE books (
@@ -27,5 +28,11 @@ CREATE TABLE comments (
     review_id INTEGER REFERENCES reviews(id),
     sent_at TIMESTAMP
 );
-    
-    
+
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    book_id INTEGER REFERENCES books(id),
+    added_at TIMESTAMP
+);
+     
