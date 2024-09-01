@@ -1,3 +1,25 @@
+<style>
+    body {
+        margin: auto;
+        max-width: 45em;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        background: gray;
+    }
+
+    .header {
+        background: white;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+    }
+</style>
+
+{% if errors %}
+    {% for error in errors %}
+        <p style="color:red;">{{ error }}</p>
+    {% endfor %}
+{% endif %}
+
+<div class="heade">
 <form action="/new" method="POST">
 <p>Kirjan nimi:</p>
 <input type="text" name="name"></p>
@@ -17,5 +39,7 @@
 Viesti: <br>
 <textarea name="content" rows="5" cols="40"></textarea>
 <br>
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <input type="submit" value="Lähetä">
 </form>
+</header>
