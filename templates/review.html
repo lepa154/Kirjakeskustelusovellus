@@ -1,0 +1,80 @@
+<html lang="fi">
+
+<body>
+    <title>Kirjakeskustelusovellus</title>
+    <style>
+        body {
+            margin: auto;
+            max-width: 45em;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background: gray;
+        }
+
+        .header {
+            background: white;
+            padding: 0.5em 1em;
+            border-radius: 0.5em;
+        }
+        .comments {
+            margin: 1.5em;
+            padding: 1em;
+            border-radius: 0.5em;
+            background: white;
+        }
+        .comment {
+            margin: 1.5em;
+            padding: 1em;
+            border-radius: 0.5em;
+            background: white;
+        }
+    </style>
+</head>
+
+    <div class="header">
+    <p> {{review.username}}</p>
+    <p> {{review.sent_at.strftime("%Y-%m-%d %H:%M:%S")}}</p>
+    <h3> {{review.name}}</h3>
+    <p> Arvosana: {{review.grade}}</p>
+    <p> {{review.content}}</p>
+    </div>
+
+<form action="/submit/{{ review.name }}" method="POST">
+    <button type="submit">Lisää kirja suosikkeihin</button>
+</form>
+
+<hr>
+    {% if comments %}
+        Kommenttien määrä {{ count }}
+        {% for comment in comments %}
+        <div class="comments">
+            <p> {{ comment.username}}</p>
+            <p>{{ comment.sent_at.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+            <p> {{ comment.content }}</p>
+        <hr>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Tällä arvostelulla ei ole vielä yhtään kommenttia.</p>
+    {% endif %}
+    
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <div class="comment">
+        <form action="/new_comment/{{ review.id }}" method="POST">
+            Kommentti: <br>
+            <textarea name="content" rows="5" cols="40"></textarea>
+            <br>
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+            <br>
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+            <input type="submit" value="Lähetä">
+            </form>
+
+    </div>
+    <a href="/">Palaa etusivulle</a> <br>
+    <a href="/logout">Kirjaudu ulos</a>
+
+
+</body>
+</html>
