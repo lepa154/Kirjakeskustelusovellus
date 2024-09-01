@@ -1,13 +1,29 @@
 <h2>Luo uusi käyttäjätunnus</h2>
+<style>
+    body {
+        margin: auto;
+        max-width: 45em;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        background: gray;
+    }
 
-{% if error %}
-<p style="color:red;">{{ error }}</p>
+    .header {
+        background: white;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+    }
+</style>
+{% if errors %}
+    {% for error in errors %}
+        <p style="color:red;">{{ error }}</p>
+    {% endfor %}
 {% endif %}
-
-<form action="/register" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Luo käyttäjätunnus">
-</form>
+<div class="header">
+    <form action="/register" method="POST">
+    <p>Tunnus:<br>
+    <input type="text" name="username"></p>
+    <p>Salasana:<br>
+    <input type="password" name="password"></p>
+    <input type="submit" value="Luo käyttäjätunnus">
+    </form>
+</div>
