@@ -1,18 +1,16 @@
 # Kirjakeskustelusovellus
 
-Sovelluksessa voi jakaa arvosteluja kirjoista, keskustella niistä ja lukea muiden arvosteluja. Jokaisen arvostelun (keskustelun) aihe on tietty kirja. Jokainen käyttäjä on peruskäyttäjä tai ylläpitäjä.
+Sovelluksessa voi jakaa arvosteluja kirjoista, keskustella niistä ja lukea muiden arvosteluja. Jokaisen arvostelun (keskustelun) aihe on tietty kirja. Jokainen käyttäjä on peruskäyttäjä.
 
 Sovelluksen ominaisuuksia: 
 Käyttäjä voi luoda uuden tunnuksen sekä kirjautua sisään ja ulos. 
 Sovelluksen etusivulla näkyy arvostelujen määrä ja arvostelut. 
 Arvostelut liittyvät tiettyyn kirjaan ja ovat myös ketjuja, joissa voi käydä keskustelua. 
-Käyttäjä voi hakea arvosteluja kirjan, genren tai arvosanan perusteella. 
-Käyttäjä voi antaa arvostelun kirjasta antamalla kirjan nimen, kirjailijan ja arvosanan (1-5).  
-Hakemalla tiettyä kirjaa käyttäjä näkee kirjojen arvostelujen keskiarvon (1-5) ja arvostelut kirjasta. 
+Käyttäjä voi hakea arvosteluja kirjan nimen perusteella. 
+Käyttäjä voi antaa arvostelun kirjasta antamalla kirjan nimen, kirjailijan, arvostelun sisällön ja arvosanan (1-5).  
+Hakemalla tiettyä kirjaa käyttäjä näkee arvostelut kirjasta. 
 Käyttäjä voi kirjoittaa uuden viestin olemassa olevaan ketjuun (arvosteluun). 
-Ylläpitäjä voi lisätä ja poistaa keskusteluja ja määrittää kirjoilla genren. Ylläpitäjä voi poistaa arvosteluja.
-
-Sovellukseen voi luoda uuden tunnuksen sekä kirjautua sisään ja ulos. Sovellukseen voi luoda arvostelun.
+Käyttäjä voi tallentaa kirjoja suosikkeihin ja katsoa, mitä kirjoja on lisännyt suosikkeihin.
 
 
 
@@ -22,7 +20,7 @@ Kloonaa reposition koneellesi. Tämän jälkeen luo samaan kansioon .env -nimine
 - SECRET_KEY =
 
 Asenna virtuaaliympäristö ja sovelluksen riippuvuudet komennoilla:
-- $cd friendapp
+- $cd kirjakeskustelusovellus
 - $python3 -m venv venv
 - $source venv/bin/activate
 - $pip install flask
