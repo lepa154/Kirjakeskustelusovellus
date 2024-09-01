@@ -1,0 +1,43 @@
+<html lang="fi">
+
+<head>
+    <title>Kirjakeskustelusovellus</title>
+    <style>
+        body {
+            margin: auto;
+            max-width: 45em;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background: gray;
+        }
+
+        .header {
+            background: white;
+            padding: 0.5em 1em;
+            border-radius: 0.5em;
+        }
+        .books {
+            margin: 1.5em;
+            padding: 1em;
+            border-radius: 0.5em;
+            background: white;
+        }
+    </style>
+
+<hr>
+
+    {% if books %}
+        {% for book in books %}
+        <div class="books">
+            <tr>
+                <h3> {{ book.name}}</h3>
+                <p> {{book.added_at}}</p>
+                
+            </tr>
+            <hr>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Sinulla ei ole yhtään suosikkikirjaa</p>
+    {% endif %}
+    <a href="/">Palaa etusivulle</a>
+
